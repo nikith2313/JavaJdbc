@@ -69,6 +69,8 @@ public class EmployeeArrayOperationsImple implements employeeOperations {
 		return sb;
 	}
 
+
+	
 	public void sortBy(String s) {
 		// TODO Auto-generated method stub
 		ArrayList<Employee> emp = ed.sortAllEmployee(s);
@@ -79,6 +81,14 @@ public class EmployeeArrayOperationsImple implements employeeOperations {
 	public void highestSalary(int salary) {
 		// TODO Auto-generated method stub
 		ArrayList<Employee> emp = ed.calculateHighSalary(salary);
+		for (Employee a : emp)
+			displayEmp(a);
+	}
+	
+	public void showSalary() {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Employee> emp = ed.showEmployeeSalary();
 		for (Employee a : emp)
 			displayEmp(a);
 	}

@@ -24,10 +24,9 @@ public class EmployeeDao {
 			pst.setString(6, e.getCity());
 			pst.setString(7, e.getState());
 			pst.setString(8, e.getCountry());
-			pst.setString(9, Employee.getCompanyName());
-			pst.setDouble(10, e.getPhoneNumber());
-			pst.setInt(11, e.getZipCode());
-			pst.setInt(12, e.getDeptNo());
+			pst.setDouble(9, e.getPhoneNumber());
+			pst.setInt(10, e.getZipCode());
+			pst.setInt(11, e.getDeptNo());
 			pst.execute();
 			return true;
 		} catch (SQLException e1) {
@@ -203,6 +202,29 @@ public class EmployeeDao {
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getDouble(9), rs.getInt(10),
 						rs.getInt(11));
 				user.add(u);
+			}
+			return user;
+
+		} catch (Exception e1) {
+			e1.getMessage();
+			return null;
+		}
+	}
+
+	
+	public ArrayList<Employee> showEmployeeSalary() {
+		try {
+			PreparedStatement pst = con.prepareStatement("select * from employees where empSalary>?");
+			pst.setInt(1, 5000);
+			pst.execute();
+			Employee u = null;
+			ResultSet rs = pst.getResultSet();
+			ArrayList<Employee> user = new ArrayList<Employee>();
+			while (rs.next()) {
+				u = new Employee(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8),  rs.getDouble(9), rs.getInt(10),
+						rs.getInt(11));
+				user.add(u);	
 			}
 			return user;
 

@@ -53,11 +53,11 @@ public class EmployeeOperationsApp {
 						+ "5-Display all Employee Details\n" + "6-Calculate HRA of an  Employee\n"
 						+ "7-Calculate Gross Salary of an  Employee\n" + "8-Sort Employees by Salary\n"
 						+ "9-Sort Employees by Department\n" + "10-Sort Employees by Name and Salary\n"
-						+ "11-Sort Employees by Id\n" + "12-Highest salary Iterator\n" + "13-Exit program\n");
+						+ "11-Sort Employees by Id\n" + "12-Highest salary Iterator\n" +"13-Display Salary higher than 5000\n"+"14-Exit program\n");
 
 				sc = new Scanner(System.in);
 				int choice = sc.nextInt();
-				if (choice <= 13) {
+				if (choice <= 14) {
 					switch (choice) {
 
 					case 1:
@@ -124,6 +124,9 @@ public class EmployeeOperationsApp {
 						break;
 
 					case 13:
+						eoa.eao.showSalary();
+						break;
+					case 14:
 						eoa.exitProgram();
 						break;
 
